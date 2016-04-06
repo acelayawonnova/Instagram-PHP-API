@@ -159,11 +159,10 @@ class Instagram
      */
     public function getUser($id = 0)
     {
-        $auth = false;
+        $auth = true;
 
-        if ($id === 0 && isset($this->_accesstoken)) {
+        if ($id === 0) {
             $id = 'self';
-            $auth = true;
         }
 
         return $this->_makeCall('users/' . $id, $auth);
